@@ -125,3 +125,11 @@
   * key <String>  
 
 ## model(name, [schema], [collection], [skipInit])  
+  > 定义model  
+
+  **参数：**  
+  * name <String>  
+  * [schema] <Schema>  
+  * [collection] <>  
+  * name <>  
+  
