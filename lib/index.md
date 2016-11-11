@@ -112,3 +112,16 @@
 ## Document()  
   > Document()构造器  
 
+## DocumentProvider()  
+  > DocumentProvider()构造器  
+
+## Error()  
+  > Error()构造器  
+
+## get(key)  
+  > 返回mongoose options  
+
+  **参数：**  
+  * key <String>  
+
+## model(name, [schema], [collection], [skipInit])  
