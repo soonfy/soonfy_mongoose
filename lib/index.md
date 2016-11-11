@@ -130,6 +130,104 @@
   **参数：**  
   * name <String>  
   * [schema] <Schema>  
-  * [collection] <>  
-  * name <>  
+  * [collection] <String>  
+  * [skipInit] <Boolean>  
+  
+  **示例：**  
+  ```
+  //model
+  mongoose.model('user', new Schema({ name: String }));
+  //createConnection+model
+  let conn = mongoose.createConnection(uri);
+  let user = conn.model('user');
+  ```
+
+  **备注：**  
+  * 不指定collection，name转换为复数当作集合名  
+  * 可以使用schema.set('user')指定集合名  
+  
+## Model()  
+  > Model()构造器  
+
+## modelNames()  
+  > 返回所有model名称  
+
+  **返回值：**  
+  * <Array>  
+
+  **备注：**  
+  * 不能返回connection.model()定义的model  
+
+## Mongoose()  
+  > Mongoose()构造器  
+
+## plugin(method, [options])  
+  > 给所有schema添加plugin  
+
+  **参数：**  
+  * method <Function>  
+  * [options] <Object>  
+
+  **返回值：**  
+  * <Mongoose> this  
+
+## Promise()  
+  > Promise()构造器  
+
+## PromiseProvider()  
+  > mongoose promise存储层？？？  
+
+## Query()  
+  > Query()构造器  
+
+## Schema()  
+  > Schema()构造器  
+
+## SchemaType()  
+  > SchemaType()构造器  
+
+## set(key, value)  
+  > 设置mongoose options  
+
+  **参数：**  
+  * key <String>  
+  * value <String | Boolean | Function>  
+
+  **示例：**  
+  ```
+  mongoose.set('debug', true);
+  mongoose.set('debug', function(collectionName, methodName, arg1, arg2...) {});
+  ```
+
+## VirtualType()  
+  > VirtualType()构造器  
+
+## connection  
+  > mongoose default connection  
+
+  **返回值：**  
+  * <Connection>  
+
+  **示例：**  
+  ```
+  const mongoose = require('mongoose');
+  mongoose.connect(uri);
+  mongoose.connection.on('error', callback);
+  ```
+
+## mongo  
+  > mongoose使用的node-mongodb-native driver  
+
+## mquery  
+  > mongoose使用的mquery builder  
+
+## SchemaTypes  
+  > mongoose schema types  
+
+## Types  
+  > mongoose types  
+
+## version  
+  > mongoose版本  
+
   
