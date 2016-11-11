@@ -1,0 +1,25 @@
+{
+  "name": "mongoose_sf",
+  "version": "0.0.0",
+  "description": "mongoose api cn",
+  "main": "index.js",
+  "scripts": {
+    "test": "node demo.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/soonfy/soonfy_mongoose.git"
+  },
+  "keywords": [
+    "mongoose"
+  ],
+  "author": "soonfy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soonfy/soonfy_mongoose/issues"
+  },
+  "homepage": "https://github.com/soonfy/soonfy_mongoose#readme",
+  "dependencies": {
+    "mongoose": "^4.6.7"
+  }
+}
