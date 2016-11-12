@@ -50,10 +50,10 @@ db.on('connecting', function () {
 
 **参数：**  
 * uri <String> uri/host  
-* [db] <String> db name  
-* [port] <Number> db port  
-* [options] <Object> options  
-* [callback] \<Function\>  
+* \[db\] <String> db name  
+* \[port\] <Number> db port  
+* \[options\] <Object> options  
+* \[callback\] <Function>  
 
 **options**  
 > config, db, server, replset, user, pass, auth  
