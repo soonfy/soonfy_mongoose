@@ -53,9 +53,9 @@ db.on('connecting', function () {
 * [db] <String>, db name  
 * [port] <Number>, db port  
 * [options] <Object>, options  
-* \[callback\] \<Function\>  
+* [callback] \<Function\>    
 
-**options**  
+**选项**  
 > config, db, server, replset, user, pass, auth  
 
 ## dropDatabase(callback)  
