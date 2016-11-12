@@ -16,7 +16,6 @@
   * readyState  
 
 ## Connection()  
-
 **构造器**  
 > 实际应用中，相当于db  
 
@@ -45,7 +44,6 @@ db.on('connecting', function () {
 ```
 
 ## open(uri, [db], [port], [options], [callback])  
-
 **方法**  
 > 连接单个mongodb  
 
@@ -70,7 +68,6 @@ db.on('connecting', function () {
 * **Promise**  
 
 ## openSet(uris, [db], [options], [callback])  
-
 **方法**  
 > 打开mongo复本集  
 
@@ -81,7 +78,6 @@ db.on('connecting', function () {
 * [callback] **Function**  
 
 ## close([callback])  
-
 **方法**  
 > 关闭连接  
 
@@ -92,7 +88,6 @@ db.on('connecting', function () {
 * **Connection** this  
 
 ## collection(name, [options])  
-
 **方法**  
 > 新建或者恢复一个连接  
 
@@ -104,7 +99,6 @@ db.on('connecting', function () {
 * **Collection**  
 
 ## model(name, [schema], [collection])  
-
 **方法**  
 > 定义或者恢复一个连接  
 
@@ -117,7 +111,6 @@ db.on('connecting', function () {
 * **Model**  
   
 ## modelNames()  
-
 **方法**  
 > 获得model名称  
 
@@ -125,22 +118,18 @@ db.on('connecting', function () {
 * **Array**  
 
 ## config  
-
 **属性**  
 > 获得连接的global options  
 
 ## db  
-
 **属性**  
 > 获得连接的db  
 
 ## collections  
-
 **属性**  
 > 获得连接的collections  
   
 ## readyState  
-
 **属性**  
 > 获得连接状态  
 
