@@ -1,10 +1,10 @@
 # 索引  
 
   1. **构造器**  
-  * [Aggregate()](#Aggregate())  
+    * [Aggregate()](#Aggregate())  
 
   2. **方法**  
-  * [connect(uri(s), [options], [callback])](#connect(uri(s), [options], [callback]))  
+    * [connect(uri(s), [options], [callback])](#connect(uri(s), [options], [callback]))  
 
 ## Aggregate()  
   **构造器**  
