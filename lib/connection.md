@@ -34,7 +34,7 @@
   **事件状态变化**  
   > connecting->connected->open->disconnecting->disconnected->close  
 
-  **事件监听  
+  **事件监听**  
   ```
   const mongoose = require('mongoose');
   const db = mongoose.createConnection();
@@ -42,7 +42,6 @@
     console.log('listening connecting mongo...');
   })
   ```
-  
 
 ## open(uri, [db], [port], [options], [callback])  
   **方法**  
