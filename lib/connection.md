@@ -17,10 +17,10 @@
 
 ## Connection()  
 
-构造器  
+**构造器**  
 > 实际应用中，相当于db  
 
-事件  
+**事件**  
 * connecting  
 * connected  
 * open  
@@ -32,10 +32,10 @@
 * fullsetup  
 * all    
 
-事件状态变化  
+**事件状态变化**  
 > connecting -> connected -> open -> disconnecting -> disconnected -> close  
 
-事件监听  
+**事件监听**  
 ```
 const mongoose = require('mongoose');
 const db = mongoose.createConnection();
@@ -45,28 +45,28 @@ db.on('connecting', function () {
 ```
 
 ## open(uri, [db], [port], [options], [callback])  
-方法  
+**方法**  
 > 连接单个mongodb  
 
-参数：  
+**参数：**  
 * uri <String>, uri/host  
 * [db] <String>, db name  
 * [port] <Number>, db port  
 * [options] <Object>, options  
 * [callback] <Function>  
 
-options  
+**options**  
 > config, db, server, replset, user, pass, auth  
 
 ## dropDatabase(callback)  
-  **方法**  
-  > 删除数据库  
+**方法**  
+> 删除数据库  
 
-  **参数：**  
-  * callback <Function>  
+**参数：**  
+* callback <Function>  
 
-  **返回值：**  
-  * \<Promise\>  
+**返回值：**  
+* \<Promise\>  
 
 ## openSet(uris, [db], [options], [callback])  
   **方法**  
