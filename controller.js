@@ -2,11 +2,10 @@
 const mongoose = require('mongoose');
 const uri = 'mongodb://localhost/db1';
 mongoose.connect(uri);
-console.log(mongoose.get('name'));
 
 const First = require('./model.js');
 // console.log(First);
-First.remove({});
+First.remove({}).exec();
 let name = (function () {
   const count = 4;
   const str = 'qwertyuiopasdfghjklzxcvbnm';
@@ -26,7 +25,7 @@ let name = (function () {
   }
   return names.join('');
 })();
-const age = 2;
+const age = Math.floor(Math.random() * 9);
 const first = new First({name, age});
 first.save();
 
