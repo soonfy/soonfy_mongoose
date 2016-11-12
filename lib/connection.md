@@ -30,7 +30,7 @@
 * reconnected  
 * error  
 * fullsetup  
-* all    
+* all  
 
 **事件状态变化**  
 > connecting -> connected -> open -> disconnecting -> disconnected -> close  
@@ -53,9 +53,10 @@ db.on('connecting', function () {
 * [db] <String>, db name  
 * [port] <Number>, db port  
 * [options] <Object>, options  
-* [callback] \<Function\>    
+* [callback] \<Function\>  
+* 
 
-**选项**  
+**options**  
 > config, db, server, replset, user, pass, auth  
 
 ## dropDatabase(callback)  
