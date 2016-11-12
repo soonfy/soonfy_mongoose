@@ -1,62 +1,62 @@
 # Connection构造器  
 
-  1. 方法  
-    * open(uri, [db], [port], [options], [callback])  
-    * dropDatabase(callback)  
-    * openSet(uris, [db], [options], [callback])  
-    * close([callback])  
-    * collection(name, [options])  
-    * model(name, [schema], [collection])  
-    * modelNames()  
+1. 方法  
+  * open(uri, [db], [port], [options], [callback])  
+  * dropDatabase(callback)  
+  * openSet(uris, [db], [options], [callback])  
+  * close([callback])  
+  * collection(name, [options])  
+  * model(name, [schema], [collection])  
+  * modelNames()  
 
-  2. 属性  
-    * config  
-    * db  
-    * collections()  
-    * readyState  
+2. 属性  
+  * config  
+  * db  
+  * collections()  
+  * readyState  
 
 ## Connection()  
 
-  构造器  
-  > 实际应用中，相当于db  
+构造器  
+> 实际应用中，相当于db  
 
-  事件  
-    * connecting  
-    * connected  
-    * open  
-    * disconnecting  
-    * disconnected  
-    * close  
-    * reconnected  
-    * error  
-    * fullsetup  
-    * all    
+事件  
+* connecting  
+* connected  
+* open  
+* disconnecting  
+* disconnected  
+* close  
+* reconnected  
+* error  
+* fullsetup  
+* all    
 
-  事件状态变化  
-  > connecting -> connected -> open -> disconnecting -> disconnected -> close  
+事件状态变化  
+> connecting -> connected -> open -> disconnecting -> disconnected -> close  
 
-  事件监听  
-  ```
-  const mongoose = require('mongoose');
-  const db = mongoose.createConnection();
-  db.on('connecting', function () {
-    console.log('listening connecting mongo...');
-  })
-  ```
+事件监听  
+```
+const mongoose = require('mongoose');
+const db = mongoose.createConnection();
+db.on('connecting', function () {
+  console.log('listening connecting mongo...');
+})
+```
 
 ## open(uri, [db], [port], [options], [callback])  
-  方法  
-  > 连接单个mongodb  
+方法  
+> 连接单个mongodb  
 
-  参数：  
-  * uri <String>, uri/host  
-  * [db] <String>, db name  
-  * [port] <Number>, db port  
-  * [options] <Object>, options  
-  * [callback] <Function>  
+参数：  
+* uri <String>, uri/host  
+* [db] <String>, db name  
+* [port] <Number>, db port  
+* [options] <Object>, options  
+* [callback] <Function>  
 
-  options  
-  > config, db, server, replset, user, pass, auth  
+options  
+> config, db, server, replset, user, pass, auth  
 
 ## dropDatabase(callback)  
   **方法**  
