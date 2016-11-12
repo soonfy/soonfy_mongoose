@@ -21,16 +21,16 @@
   > 实际应用中，相当于db  
 
   **事件**  
-  * connecting  
-  * connected  
-  * open  
-  * disconnecting  
-  * disconnected  
-  * close  
-  * reconnected  
-  * error  
-  * fullsetup  
-  * all    
+    * connecting  
+    * connected  
+    * open  
+    * disconnecting  
+    * disconnected  
+    * close  
+    * reconnected  
+    * error  
+    * fullsetup  
+    * all    
 
   **事件状态变化**  
   > connecting -> connected -> open -> disconnecting -> disconnected -> close  
