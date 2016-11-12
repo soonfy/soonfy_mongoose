@@ -55,7 +55,7 @@ db.on('connecting', function () {
 * [options] <Object>, options  
 * [callback] <Function>  
 
-**options**  
+**选项options**  
 > config, db, server, replset, user, pass, auth  
 
 ## dropDatabase(callback)  
