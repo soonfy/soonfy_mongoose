@@ -30,6 +30,7 @@
   * error  
   * fullsetup  
   * all  
+  
 
   **事件状态变化**  
   > connecting->connected->open->disconnecting->disconnected->close  
