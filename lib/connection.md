@@ -49,11 +49,11 @@ db.on('connecting', function () {
 > 连接单个mongodb  
 
 **参数：**  
-* uri <String> uri/host  
-* \[db\] <String> db name  
-* \[port\] <Number> db port  
-* \[options\] <Object> options  
-* \[callback\] <Function>  
+* uri \<String\> uri/host  
+* [db] \<String\> db name  
+* [port] \<Number\> db port  
+* [options] \<Object\> options  
+* [callback] \<Function\>  
 
 **options**  
 > config, db, server, replset, user, pass, auth  
