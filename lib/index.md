@@ -1,10 +1,39 @@
 # 索引  
 
   1. **构造器**  
-    * [Aggregate()](#Aggregate())  
+    * Aggregate()  
+    * CastError(type, value, path, [reason])  
+    * Collection()  
+    * Connection()  
+    * Document()  
+    * DocumentProvider()  
+    * Error()  
+    * Model()  
+    * Mongoose()  
+    * Promise()  
+    * PromiseProvider()  
+    * Query()  
+    * Schema()  
+    * SchemaType()  
+    * VirtualType()  
 
   2. **方法**  
-    * [connect(uri(s), [options], [callback])](#connect(uri(s), [options], [callback]))  
+    * connect(uri(s), [options], [callback])  
+    * createConnection([uri], [options], [options.config], [option.config.autoIndex])  
+    * disconnect([callback])  
+    * get(key)  
+    * model(name, [schema], [collection], [skipInit])  
+    * modelNames()  
+    * plugin(method, [options])  
+    * set(key, value)  
+    
+  3. **属性**  
+    * connection  
+    * mongo  
+    * mquery  
+    * SchemaTypes  
+    * Types  
+    * version  
 
 ## Aggregate()  
   **构造器**  
@@ -232,7 +261,7 @@
   > VirtualType()构造器  
 
 ## connection  
-  **熟悉**  
+  **属性**  
   > mongoose default connection  
 
   **返回值：**  
@@ -246,7 +275,7 @@
   ```
 
 ## mongo  
-  **熟悉**  
+  **属性**  
   > mongoose使用的node-mongodb-native driver  
 
 ## mquery  
@@ -265,7 +294,9 @@
   * <Date>  
   * <Array>  
   * <ObjectId | Oid>  
-  * <Mixed>  
+  * <Mixed | Object>  
+  * <DocumentArray>  
+  * <Embedded>  
 
 ## Types  
   **属性**  
@@ -276,6 +307,7 @@
   * <Buffer>  
   * <SubDocument>  
   * <Array>  
+  * <Document>  
   * <DocumentArray>  
 
 ## version  

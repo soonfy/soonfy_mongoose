@@ -1,2 +1,2 @@
-// require('./lib/index.js');
-require('./controller');
+require('./lib/index.js');
+// require('./controller');
