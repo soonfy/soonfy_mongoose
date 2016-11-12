@@ -16,10 +16,10 @@
     * readyState  
 
 ## Connection()  
-  **构造器**  
+  * **构造器**  
     实际应用中，相当于db  
 
-  **事件**  
+  * **事件**  
     * connecting  
     * connected  
     * open  
@@ -31,10 +31,10 @@
     * fullsetup  
     * all  
 
-  >**事件状态变化**  
-  >> connecting->connected->open->disconnecting->disconnected->close  
+  * **事件状态变化**  
+  > connecting->connected->open->disconnecting->disconnected->close  
 
-  >**事件监听**  
+  * **事件监听**  
   ```
   const mongoose = require('mongoose');
   const db = mongoose.createConnection();
