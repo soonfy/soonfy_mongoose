@@ -54,7 +54,7 @@ db.on('connecting', function () {
 * [port] <Number>, db port  
 * [options] <Object>, options  
 * [callback] \<Function\>  
-* 
+---
 
 **options**  
 > config, db, server, replset, user, pass, auth  
