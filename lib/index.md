@@ -286,7 +286,7 @@
   **属性**  
   > mongoose schema types  
 
-  **类型：**  
+  **值域：**  
   * <String>  
   * <Number>  
   * <Boolean | Bool>  
@@ -302,7 +302,7 @@
   **属性**  
   > mongoose types  
 
-  **类型：**  
+  **值域：**  
   * <ObjectId>  
   * <Buffer>  
   * <SubDocument>  

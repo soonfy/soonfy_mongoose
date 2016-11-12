@@ -10,4 +10,8 @@
   mongodb://user:pass@host:port/database
   ```
 
-  2. 
+  2. connect options  
+  ```
+  config, db, server, replset, user, pass, auth, mongos
+  ```
+
