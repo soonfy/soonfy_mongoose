@@ -4,7 +4,7 @@
 
 ## [mongoose](http://mongoosejs.com/docs/api.html)  
 
-## common use  
+## custom use  
   1. mongo uri format  
   ```
   mongodb://user:pass@host:port/database
@@ -15,3 +15,7 @@
   config, db, server, replset, user, pass, auth, mongos
   ```
 
+  3. error message templating  
+  ```
+  {PATH}, {VALUE}, {TYPE}, {MIN}, {MAX}
+  ```
