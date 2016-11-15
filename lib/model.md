@@ -286,9 +286,66 @@ Model.ensureIndexes(function (error) {
 
 **示例：**  
 ```
-Model.ensureIndexes(function (error) {
-  if(error){
-    console.log(error);
-  }
-})
+Model.find({name: 'oops', age: 3}, {name: 1, age: 1, _id: 0}, {skip: 1, limit: 1}).exec(function (error, docs) {});
+```
+
+## findById(id, [fields], [options], [cb])  
+**方法**  
+> 查找id  
+
+**参数：**  
+* id **Object | String | Number**  
+* [fields] **Object**  
+* [options] **Object**  
+* [cb] **Function**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+Model.findById(id, {name: 1, age: 1, _id: 0}).exec(function (error, doc) {});
+```
+
+## findByIdAndRemove(id, [options], [cb])  
+**方法**  
+> 删除id  
+
+**参数：**  
+* id **Object | String | Number**  
+* [options] **Object**  
+* [cb] **Function**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+Model.findByIdAndRemove(id).exec(function (error) {});
+```
+
+## findByIdAndUpdate(id, [update], [options], [cb])  
+**方法**  
+> 更新id  
+
+**参数：**  
+* id **Object | String | Number**  
+* [update] **Object**  
+* [options] **Object**  
+* [cb] **Function**  
+
+**值域：**  
+* new **Boolean**  
+* upsert **Boolean**  
+* runValidators **Boolean**  
+* setDefaultsOnInsert **Boolean**  
+* sort **Object**  
+* select **Object**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+Model.findByIdAndUpdate(id, {$set: {name: 'oops'}}).exec(function (error) {});
 ```
