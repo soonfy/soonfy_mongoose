@@ -316,6 +316,10 @@ Model.findById(id, {name: 1, age: 1, _id: 0}).exec(function (error, doc) {});
 * [options] **Object**  
 * [cb] **Function**  
 
+**值域：**  
+* sort **Object**  
+* select **Object**  
+
 **返回值：**  
 * **Query**  
 
@@ -349,3 +353,252 @@ Model.findByIdAndRemove(id).exec(function (error) {});
 ```
 Model.findByIdAndUpdate(id, {$set: {name: 'oops'}}).exec(function (error) {});
 ```
+
+## findOne([conditions], [fields], [options], [cb])  
+**方法**  
+> 查询  
+
+**参数：**  
+* [conditions] **Object**  
+* [projection] **Object**  
+* [options] **Object**  
+* [cb] **Function**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+Model.findOne({name: 'oops', age: 3}, {name: 1, age: 1, _id: 0}, {skip: 1, limit: 1}).exec(function (error, docs) {});
+```
+
+## findOneAndRemove(conditions, [options], [cb])  
+**方法**  
+> 删除  
+
+**参数：**  
+* conditions **Object**  
+* [options] **Object**  
+* [cb] **Function**  
+
+**值域：**  
+* sort **Object**  
+* maxTimeMS **Number**  
+* select **Object**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+Model.findOneAndRemove({_id: _id}).exec(function (error) {});
+```
+
+## findOneAndUpdate([conditions], [update], [options], [cb])  
+**方法**  
+> 更新  
+
+**参数：**  
+* [conditions] **Object**  
+* [update] **Object**  
+* [options] **Object**  
+* [cb] **Function**  
+
+**值域：**  
+* new **Boolean**  
+* upsert **Boolean**  
+* fields **Object | Boolean**  
+* runValidators **Boolean**  
+* setDefaultsOnInsert **Boolean**  
+* sort **Object**  
+* select **Object**  
+* passRawResult **Boolean**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+Model.findOneAndUpdate({_id: _id}, {name: name}).exec(function (error) {});
+```
+
+## geoNear(GeoJSON, options, [cb])  
+**方法**  
+
+## geoSearch(condition, options, [cb])  
+**方法**  
+
+## hydrate(obj)  
+**方法**  
+
+## insertMany(docs, [cb])  
+**方法**  
+> 插入多条数据  
+
+**参数：**  
+* docs **Array | Object**  
+* [cb] **Function**  
+
+**返回值：**  
+* **Promise**  
+
+**示例：**  
+```
+Model.insertMany([{name: name1}, {name2: name2}], function (error, docs) {});
+```
+
+## mapReduce(mr, [cb])  
+**方法**  
+> map-reduce  
+
+**参数：**  
+* mr **Object**  
+* [cb] **Function**  
+
+**值域：**  
+* query **Object**  
+* sort **Object**  
+* limit **Number**  
+* keeptemp **Boolean**  
+* finalize **Function**  
+* scope **Object**  
+* jsMode **Boolean**  
+* verbose **Boolean**  
+* readPreference **String**  
+* out **Object**  
+
+**out值域：**  
+* inline **1**  
+* replace **collectionName**  
+* reduce **collectionName**  
+* merge **collectionName**  
+
+**返回值：**  
+* **Promise**  
+
+**示例：**  
+```
+let mr = {
+  map: function(){emit(this.name, 1)},
+  reduce: function(k, vals){return vals.length},
+  limit: 100,
+  out: {replace: 'resultCollectionName'}
+}
+Model.mapReduce(mr, function (error, result) {});
+```
+
+## populate(docs, options, [cb])  
+**方法**  
+> 填充数据  
+
+**参数：**  
+* docs **Object**  
+* options **Object**  
+* [cb] **Function**  
+
+**值域：**  
+* path **String**  
+* select **String**  
+* match **Object**  
+* model **String**  
+* options **Object**  
+
+
+**返回值：**  
+* **Promise**  
+
+**示例：**  
+```
+User.findById(id, function (err, user) {
+  var opts = [
+    { path: 'company', match: { x: 1 }, select: 'name' },
+    { path: 'notes', options: { limit: 10 }, model: 'override' }
+  ]
+  User.populate(user, opts, function (err, user) {
+    console.log(user);
+  })
+})
+```
+
+## remove(conditions, [cb])  
+**方法**  
+> 移除  
+
+**参数：**  
+* conditions **Object**  
+* [cb] **Function**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+User.remove({_id: _id}).exec();
+```
+
+## update(conditions, doc, [options], [cb])  
+**方法**  
+> 更新  
+
+**参数：**  
+* conditions **Object**  
+* docs **Object**  
+* [options] **Object**  
+* [cb] **Function**  
+
+**值域：**  
+* safe **Boolean**  
+* upsert **Boolean**  
+* multi **Boolean**  
+* runValidators **Boolean**  
+* setDefaultsOnInsert **Boolean**  
+* strict **Boolean**  
+* overwrite **Boolean**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+MyModel.update({ name: 'Tobi' }, { ferret: true }, { multi: true }, function (err, raw) {
+  if (err) return handleError(err);
+  console.log('The raw response from Mongo was ', raw);
+});
+```
+
+## where(path, [val])  
+**方法**  
+> 创建查询  
+
+**参数：**  
+* path **String**  
+* [val] **Object**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+MyModel.where('name', /sf/i);
+```
+
+## base  
+**属性**  
+
+## baseModelName  
+**属性**  
+
+## collection  
+**属性**  
+
+## db  
+**属性**  
+
+## discriminators  
+**属性**  
+
+## modelName  
+**属性**  
+
+## schema  
+**属性**  
