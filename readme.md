@@ -128,3 +128,8 @@
   ```
   ModelName.find({age: 18}, function(err, doc){doc.increment(); });
   ```
+
+  12. find and modify docs  
+  ```
+  ModelName.findOneAndUpdate({name: 'soonfy'}, {age: 18}, {});
+  ```
