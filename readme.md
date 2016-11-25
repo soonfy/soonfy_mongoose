@@ -5,7 +5,7 @@
 ## [mongoose](http://mongoosejs.com/docs/api.html)  
 
 ## custom use  
-  1. mongo uri format  
+  1. mongo connect uri format  
   ```
   mongodb://user:pass@host:port/database
   ```
@@ -18,4 +18,9 @@
   3. error message templating  
   ```
   {PATH}, {VALUE}, {TYPE}, {MIN}, {MAX}
+  ```
+
+  4. update options  
+  ```
+  safe, upsert, multi, runValidators, setDefaultsOnInsert, strict, overwrite, context
   ```

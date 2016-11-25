@@ -1,4 +1,4 @@
-# Connection构造器  
+# Connection类  
 
 1. 方法  
   * open(uri, [db], [port], [options], [callback])  

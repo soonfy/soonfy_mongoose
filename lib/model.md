@@ -1,4 +1,4 @@
-# Model构造器  
+# Model类  
 
 ## $where(args)  
 **方法**  

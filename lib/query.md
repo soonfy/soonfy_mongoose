@@ -1,4 +1,4 @@
-# Query构造器  
+# Query类  
 
 ## $where(js)  
 **方法**  
@@ -697,3 +697,226 @@ query.select('-c -d');
 
 **返回值：**  
 * **Boolean**  
+
+## size([path], val)  
+**方法**  
+> $size操作符  
+
+**参数：**  
+* [path] **String**  
+* val **Number**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+MyModel.where('tags').size(0).exec(function (err, docs) {
+  if (err) return handleError(err);
+
+  assert(Array.isArray(docs));
+  console.log('documents with 0 tags', docs);
+})
+```
+
+## skip(val)  
+**方法**  
+> $size操作符  
+
+**参数：**  
+* val **Number**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+query.skip(100).limit(20)
+```
+
+## slice([path], val)  
+**方法**  
+> $slice操作符  
+
+**参数：**  
+* [path] **String**  
+* val **Number**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+query.slice('comments', 5)
+```
+
+## snapshot()  
+**方法**  
+> $snapshot操作符  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+query.snapshot()
+```
+
+## sort(args)  
+**方法**  
+> 排序  
+
+**参数：**  
+* args **Object | String**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+query.sort({ field: 'asc', test: -1 });
+```
+
+## stream([options])  
+**方法**  
+> 流  
+
+**参数：**  
+* [options] **Object**  
+
+**返回值：**  
+* **QueryStream**  
+
+**示例：**  
+```
+var stream = Thing.find({ name: /^hello/ }).stream();
+stream.on('data', function (doc) {
+  // do something with the mongoose document
+}).on('error', function (err) {
+  // handle the error
+}).on('close', function () {
+  // the stream is closed
+});
+//
+var stream = Thing.find().stream({ transform: JSON.stringify });
+stream.pipe(writeStream);
+```
+
+## tailable(bool, [options], [options.numberOfRetries], [options.tailableRetryInterval])  
+**方法**  
+> 流  
+
+**参数：**  
+* bool **Boolean**  
+* [options] **Object**  
+* [options.numberOfRetries] **Number**  
+* [options.tailableRetryInterval] **Number**  
+
+**示例：**  
+```
+var stream = Thing.find({ name: /^hello/ }).stream();
+stream.on('data', function (doc) {
+  // do something with the mongoose document
+}).on('error', function (err) {
+  // handle the error
+}).on('close', function () {
+  // the stream is closed
+});
+//
+var stream = Thing.find().stream({ transform: JSON.stringify });
+stream.pipe(writeStream);
+```
+
+## then([resolve], [reject])  
+**方法**  
+> 执行  
+
+**参数：**  
+* [resolve] **Function**  
+* [reject] **Function**  
+
+**返回值：**  
+* **Promise**  
+
+## toConstructor()  
+**方法**  
+> 定制查询条件为构造器  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+var query = Movie.find({ tags: 'adventure' }).read('primaryPreferred');
+var Adventure = query.toConstructor();
+Adventure().where({ name: /^Life/ }).exec(callback);
+```
+
+## update([condition], [doc], [options], [cb])  
+**方法**  
+> 更新  
+
+**参数：**  
+* [condition] **Object**  
+* [doc] **Object**  
+* [options] **Object**  
+* [cb] **Function**  
+
+**值域：**  
+* safe **Boolean**  
+* upsert **Boolean**  
+* multi **Boolean**  
+* runValidators **Boolean**  
+* setDefaultsOnInsert **Boolean**  
+* strict **Boolean**  
+* overwrite **Boolean**  
+* context **String**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+Model.where({ _id: id }).update({ title: 'words' })
+```
+
+## where([path], val)  
+**方法**  
+> 查询  
+
+**参数：**  
+* [path] **String**  
+* val **Any**  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+User
+  .where('age').gte(21).lte(65)
+  .where('name', /^vonderful/i)
+  .where('friends').slice(10)
+  .exec(callback)
+```
+
+## within()  
+**方法**  
+> $within或者$geoWithin，必须在where()后使用  
+
+**返回值：**  
+* **Query**  
+
+**示例：**  
+```
+query.where(path).within().box()
+query.where(path).within().circle()
+query.where(path).within().geometry()
+```
+
+## use$geoWithin  
+**属性**  
+> $geoWithin选项  
+
+**返回值：**  
+* **Query**  

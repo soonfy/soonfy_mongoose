@@ -1,4 +1,4 @@
-# Collection构造器  
+# Collection类  
 
 ## Collection(name, conn, [options])  
 

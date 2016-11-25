@@ -1,4 +1,4 @@
-# SchemaType构造器  
+# SchemaType类  
 
 1. 类型  
   * SchemaArray  

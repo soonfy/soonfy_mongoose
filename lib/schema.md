@@ -1,4 +1,4 @@
-# Schema构造器  
+# Schema类  
 
 1. 方法  
   * add(fields, [prefix])  
