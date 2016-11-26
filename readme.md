@@ -203,7 +203,7 @@
   ```
 
   17. schema static method  
-  ```model mothod
+  ```model mothod  
   SchemaName.statics.findByName = function (name, cb){return this.find({name: new RegExp(name, 'i')}, cb);}
   ModelName.findByName('soonfy');
   ```
