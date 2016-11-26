@@ -124,7 +124,7 @@
   ModelName.distinct('name', {age: 18});
   ```
 
-  11. increment docs  
+  11. increment doc version  
   ```
   ModelName.find({age: 18}, function(err, doc){doc.increment(); });
   ```
