@@ -203,13 +203,15 @@
   ```
 
   17. schema static method  
-  ```model mothod  
+  model mothod  
+  ```
   SchemaName.statics.findByName = function (name, cb){return this.find({name: new RegExp(name, 'i')}, cb);}
   ModelName.findByName('soonfy');
   ```
 
   18. schema instance method  
-  ```document method
+  document method  
+  ```
   SchemaName.methods.findByAge = function (cb){return this.model(ModelName).find({age: this.age}, cb);}
   doc = new ModelName({name: 'soonfy', age: 2});
   doc.findByAge();
