@@ -27,6 +27,17 @@
   safe, upsert, multi, runValidators, setDefaultsOnInsert, strict, overwrite, context
   ```
 
+  5. schema options  
+  ```
+  autoIndex, bufferCommands, capped, collection, emitIndexErrors, id, _id, minimize, read, safe, shardKey, strict, toJSON, toObject, typeKey, validateBeforeSave, versionKey, skipVersioning, timestamps, retainKeyOrder
+  ```
+
+  6. Promise  
+  ```
+  mongoose.Promise = global.Promise
+  // mongoose.Promise = require('bluebird');
+  ```
+
 ## custom method  
   1. connect mongo uri  
   ```
@@ -49,13 +60,13 @@
       type: String,
       default: 'soonfy',
       required: true,
+      validate: validator,
+      get: cb(value){return;},
+      set: cb(value){return;},
       index: true,
-      get: cb(){},
-      set: cb(){},
       unique: true,
       sparse: true,
-      text: true,
-      validate: validator,
+      text: true
     }
     name: {
       type: String,
@@ -77,6 +88,14 @@
       expires: '1d',
       max: maxDate,
       min: minDate
+    },
+    comments: [{
+      content: String,
+      time: Date
+    }],
+    author: {
+      name: String,
+      email: String
     }
   })
   ```
@@ -181,4 +200,93 @@
   ModelName.find().skip(10);
   ModelName.find().slice('pages', [1, 3]);      //截取数组
   ModelName.find().sort({name: 'asc', age: 1});
+  ```
+
+  17. schema static method  
+  ```model mothod
+  SchemaName.statics.findByName = function (name, cb){return this.find({name: new RegExp(name, 'i')}, cb);}
+  ModelName.findByName('soonfy');
+  ```
+
+  18. schema instance method  
+  ```document method
+  SchemaName.methods.findByAge = function (cb){return this.model(ModelName).find({age: this.age}, cb);}
+  doc = new ModelName({name: 'soonfy', age: 2});
+  doc.findByAge();
+  ```
+
+  19. schema virtual property  
+  ```
+  SchemaName = new Schema({
+    name: {
+      first: String,
+      last: String
+    }
+  })
+  // get
+  SchemaName.virtual('name.full').get(function(){
+    return [this.name.first, this.name.last].join(' ');
+  })
+  SchemaName.virtual('name.full).set(function(name){
+    const names = name.split(' ');
+    this.name.first = names[0];
+    this.name.last = names[1];
+  })
+  ```
+
+  20. modify Date  
+  ```
+  ModelName.findOne(function(err, doc){
+    doc.date.setMonth(3);
+    doc.save();           //not work
+    doc.markModified('date');
+    doc.save();           //work
+  })
+  ```
+
+  21. modify Mixed  
+  ```
+  ModelName.findOne(function(err, doc){
+    doc.mixed = {'soonfy', 1, new Date};
+    doc.save();           //not work
+    doc.markModified('mixed');
+    doc.save();           //work
+  })
+  ```
+
+  22. middleware  
+  ```
+  // pre serial
+  SchemaName.pre('save', function(next){
+    next();
+  })
+  // pre parallel
+  SchemaName.pre('save', true, function(next, done){
+    next();
+    setTimeout(done, 100);
+  })
+  // post
+  SchemaName.post('save', function(doc){
+    console.log('%s has been saved.', doc._id);
+  })
+  // find cost time
+  SchemaName.pre('find', function(){
+    this.start = Date.now();
+  })
+  SchemaName.post('find', function(docs){
+    console.log('find result is %s.', docs);
+    console.log('find cost time is %d millis.', Date.now() - this.start);
+  })
+  // unique save error
+  SchemaName.post('save', function(error, doc, next){
+    if(error.name === 'MongoError' && error.code === 11000){
+      next(new Error('duplicate key error.'));
+    }else{
+      next(error);
+    }
+  })
+  // auto update time
+  SchemaName.pre('update', function(){
+    this.update({}, {$set: {updatedAt: new Date()}});
+  })
   ```
