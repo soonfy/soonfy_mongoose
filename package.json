@@ -4,7 +4,7 @@
   "description": "mongoose api cn",
   "main": "index.js",
   "scripts": {
-    "test": "node demo.js"
+    "test": "node index.js"
   },
   "repository": {
     "type": "git",
