@@ -229,6 +229,7 @@
   SchemaName.virtual('name.full').get(function(){
     return [this.name.first, this.name.last].join(' ');
   })
+  // set
   SchemaName.virtual('name.full).set(function(name){
     const names = name.split(' ');
     this.name.first = names[0];
